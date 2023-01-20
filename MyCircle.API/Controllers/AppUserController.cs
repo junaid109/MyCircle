@@ -1,22 +1,22 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyCircle.API.Data;
+using MyCircle.API.Entities;
 
 namespace MyCircle.API.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class AppUserController : Controller
+    [Authorize]
+    public class AppUserController : BaseApiController
     {
         private readonly DataContext dataContext;
-        
-   
-
+    
         public AppUserController(DataContext dataContext)
         {
             this.dataContext = dataContext;
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult GetUsers()
         {
             var users = dataContext.Users;
@@ -45,7 +45,5 @@ namespace MyCircle.API.Controllers
             dataContext.SaveChanges();
             return Ok(user);
         }
-
-
     }
 }
