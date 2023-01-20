@@ -9,10 +9,9 @@ namespace MyCircle.API.Data
         {
             
         }
-
-        
+    
         public DbSet<AppUser> Users { get; set; }
-
+       
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MySocialDB;Trusted_Connection=True;");
