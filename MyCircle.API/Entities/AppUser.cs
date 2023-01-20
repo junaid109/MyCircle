@@ -1,4 +1,6 @@
-﻿namespace MyCircle.API.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MyCircle.API.Entities
 {
     public class AppUser
     {
